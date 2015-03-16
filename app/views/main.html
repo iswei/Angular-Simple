@@ -1,0 +1,56 @@
+<div class="row">
+
+  <div class="col-lg-12">
+    <h3 class="page-header">User List</h3>
+  </div>
+  <div colspan="5"><input type="text" class="form-control" ng-model="userCtrl.search" placeholder="Search by name,age,email,date"></div>
+  <!--<user-item></user-item>-->
+
+
+
+  <table st-table="userCtrl.users" class="table table-striped">
+    <thead>
+    <tr>
+      <th colspan="2" st-sort="getter.lastName">Last Name</th>
+      <th colspan="2"  st-sort="first">First Name</th>
+      <th colspan="1"  st-sort="age">Age</th>
+      <th colspan="2"  st-sort="email">Email</th>
+      <th colspan="2"  st-sort="createDate">Created On</th>
+      <th colspan="2"  st-sort="editDate">Last edited</th>
+      <th colspan="3"  st-sort="active">Active</th>
+    </tr>
+    <tr>
+      <form ng-submit='postData()'>
+        <th colspan="2"><input class="form-control" ng-model="lastName" placeholder="Last" type="text"/></th>
+        <th colspan="2"><input class="form-control" ng-model="firstName" placeholder="First" type="text"/></th>
+        <th colspan="1"><input class="form-control" ng-model="age" placeholder="Age" type="text"/></th>
+        <th colspan="2"><input class="form-control" ng-model="email" placeholder="Email" type="text"/></th>
+        <th colspan="2"><button type="submit"  class="btn btn-sm btn-success" >
+          <i class="glyphicon glyphicon-plus">
+          </i> Add User
+        </button></th>
+      </form>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="user in userCtrl.users | filterUser:userCtrl.search">
+      <td colspan="2">{{user.name.last}}</td>
+      <td colspan="2">{{user.name.first}}</td>
+      <td colspan="1">{{user.age}}</td>
+      <td colspan="2">{{user.email}}</td>
+      <td colspan="2">{{user.createDate}}</td>
+      <td colspan="2">{{user.editDate}}</td>
+      <td colspan="3">{{user.active}}
+        <button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-remove-circle">
+          </i>
+        </button>
+
+      </td>
+      <!-- <p>{{user.createDate | date:'MMMM,dd yyyy'}}</p>-->
+    </tr>
+    <tbody>
+</table>
+
+</div>

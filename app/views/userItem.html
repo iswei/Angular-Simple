@@ -1,0 +1,9 @@
+
+<div ng-repeat="user in userCtrl.users | filterUser:userCtrl.search" class="col-sm-3 col-xs-6">
+  {{console.log(user)}}
+  <div>
+    <h4>{{user.name.first}}</h4>
+    <h4>{{user.name.last}}</h4>
+   <!-- <p>{{user.createDate | date:'MMMM,dd yyyy'}}</p>-->
+  </div>
+</div>
