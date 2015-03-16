@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+
 angular
   .module('dataxuapp', [
     'ngAnimate',
@@ -28,6 +29,10 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'addUserCtrl'
       })
       .otherwise({
         redirectTo: '/'

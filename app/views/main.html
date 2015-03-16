@@ -7,11 +7,10 @@
   <!--<user-item></user-item>-->
 
 
-
   <table st-table="userCtrl.users" class="table table-striped">
     <thead>
     <tr>
-      <th colspan="2" st-sort="getter.lastName">Last Name</th>
+      <th colspan="2" st-sort="lastName">Last Name</th>
       <th colspan="2"  st-sort="first">First Name</th>
       <th colspan="1"  st-sort="age">Age</th>
       <th colspan="2"  st-sort="email">Email</th>
@@ -19,21 +18,8 @@
       <th colspan="2"  st-sort="editDate">Last edited</th>
       <th colspan="3"  st-sort="active">Active</th>
     </tr>
-    <tr>
-      <form ng-submit='postData()'>
-        <th colspan="2"><input class="form-control" ng-model="lastName" placeholder="Last" type="text"/></th>
-        <th colspan="2"><input class="form-control" ng-model="firstName" placeholder="First" type="text"/></th>
-        <th colspan="1"><input class="form-control" ng-model="age" placeholder="Age" type="text"/></th>
-        <th colspan="2"><input class="form-control" ng-model="email" placeholder="Email" type="text"/></th>
-        <th colspan="2"><button type="submit"  class="btn btn-sm btn-success" >
-          <i class="glyphicon glyphicon-plus">
-          </i> Add User
-        </button></th>
-      </form>
-    </tr>
     </thead>
 
-    <tbody>
     <tr ng-repeat="user in userCtrl.users | filterUser:userCtrl.search">
       <td colspan="2">{{user.name.last}}</td>
       <td colspan="2">{{user.name.first}}</td>
@@ -50,7 +36,7 @@
       </td>
       <!-- <p>{{user.createDate | date:'MMMM,dd yyyy'}}</p>-->
     </tr>
-    <tbody>
+
 </table>
 
 </div>

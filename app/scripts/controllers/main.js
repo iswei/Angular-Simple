@@ -61,13 +61,7 @@
       };
 
       this.getData();
-      this.displayedCollection = [].concat(this.allUser);
-      this.getters= {
-        lastName: function (value) {
-          //this will sort by the length of the first name string
-          return user.name.last.length;
-        }
-      }
+
     }]);
 
 

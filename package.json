@@ -1,7 +1,9 @@
 {
   "name": "simplemean",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.12.2"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",

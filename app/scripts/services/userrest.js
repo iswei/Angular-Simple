@@ -7,30 +7,14 @@ angular.module('restModule',['mainApp']).factory('RestUsers', ['$http', function
 
     var getUser = function(cb){
 
-      $http.get('/data/user.json').success(function(data){
+      $http.get('/data/userdb.js').success(function(data){
         cb(data);
 
       });
     };
 
     var createUser = function(){
-      var data = $.param({
-        json: JSON.stringify({
-          "name" : {
-            "last" : this.lastName,
-            "first"  : this.firstName
-          },
-          "age" : this.age,
-          "email" : this.email,
-          "createDate" : new Date(),
-          "editDate" : new Date(),
-          "active": true
-        })
-      });
 
-      $http.post('/addUser', data).success(function(data, status) {
-        console.log('post success');
-      });
     };
     var editUser = function(){
 
