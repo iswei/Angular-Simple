@@ -32,7 +32,7 @@ angular
       })
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'addUserCtrl'
+        controller: 'AddUserCtrl'
       })
       .otherwise({
         redirectTo: '/'

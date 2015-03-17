@@ -2,7 +2,10 @@
   "name": "simplemean",
   "version": "0.0.0",
   "dependencies": {
-    "express": "^4.12.2"
+    "async": "^0.9.0",
+    "body-parser": "~1.12.0",
+    "express": "^4.12.2",
+    "mongoose-simpledb": "^4.0.2"
   },
   "repository": {},
   "devDependencies": {
