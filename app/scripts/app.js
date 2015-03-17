@@ -17,7 +17,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'restModule',
     'mainApp'
   ])
   .config(function ($routeProvider) {
@@ -32,7 +31,7 @@ angular
       })
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'AddUserCtrl'
+        controller: 'AddUserCtrl as AddUser'
       })
       .otherwise({
         redirectTo: '/'

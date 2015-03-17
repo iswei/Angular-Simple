@@ -1,11 +1,10 @@
 <form>
-  <div colspan="2"><input class="form-control" type="hidden", name="_id"/></div>
-  <div colspan="2"><input class="form-control" name="lastName" placeholder="Last"  type="text"/></div>
-  <div colspan="2"><input class="form-control" name="firstName" placeholder="First" type="text"/></div>
-  <div colspan="1"><input class="form-control" name="age" placeholder="Age" type="text"/></div>
-  <div colspan="2"><input class="form-control" name="email" placeholder="Email" type="text"/></div>
-  <div class="checkbox"><label><input type="checkbox" name="active"> Active</label></div>
-  <div colspan="2"><button type="submit"  class="btn btn-sm btn-success" >
+  <div colspan="2"><input required class="form-control" ng-model="user.name.last" placeholder="Last"  type="text"/></div>
+  <div colspan="2"><input required class="form-control" ng-model="user.name.first" placeholder="First" type="text"/></div>
+  <div colspan="1"><input required class="form-control" ng-model="user.age" placeholder="Age" type="text"/></div>
+  <div colspan="2"><input required class="form-control" ng-model="user.email" placeholder="Email" type="text"/></div>
+  <div class="checkbox"><label><input type="checkbox" ng-model="user.active"> Active</label></div>
+  <div colspan="2"><button type="button"  ng-click="AddUser.addUser(user)"class="btn btn-sm btn-success" >
     <i class="glyphicon glyphicon-plus">
     </i> Add User
   </button></div>

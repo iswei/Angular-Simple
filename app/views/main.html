@@ -20,7 +20,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="user in userCtrl.users | filterUser:userCtrl.search">
+    <tr ng-repeat="user in userCtrl.users | filterUser:userCtrl.search track by $index">
       <td colspan="2">{{user.name.last}}</td>
       <td colspan="2">{{user.name.first}}</td>
       <td colspan="1">{{user.age}}</td>

@@ -10,7 +10,7 @@
 
 
 (function(){
-  angular.module('mainApp',['restModule','smart-table'])
+  angular.module('mainApp',['smart-table'])
     .filter('filterUser', function(){
       return function(users, search){
         var filtered = [];
@@ -51,39 +51,19 @@
     .run([function(){
       console.log('User Module is running');
     }])
-    .controller('MainCtrl', ['$scope','$http','RestUsers',function($scope,$http,RestUsers){
-      var nameList = ['Wei', 'Jason', 'Christina', 'Emily', 'Mayu'];
-      var familyName = ['Frank', 'Lam', 'Herderson', 'Potter', 'Kudo'];
+    .controller('MainCtrl', ['$scope','RestUsers',function($scope,RestUsers) {
+      var firstList = ['Wei', 'Jeremy', 'Christina', 'Emily', 'Mayu'];
+      var lastName = ['Frankenstein', 'Lin', 'Henderson', 'Su', 'Kudo'];
       this.users = [];
-      this.itemsByPage=15;
-
-      $scope.isLoading = false;
-      function createRandomItem() {
-        var
-          first = nameList[Math.floor(Math.random() * 4)],
-          last = familyName[Math.floor(Math.random() * 4)],
-          age = Math.floor(Math.random() * 100),
-          email = first + last + '@whatever.com',
-          createDate = (new Date(new Date())).toLocaleString(),
-          editDate = (new Date(new Date())).toLocaleString(),
-          active = false;
-
-        return {
-          name:{
-            last: last,
-            first: first
-          },
-          age: age,
-          email: email,
-          createDate: createDate,
-          editDate: editDate,
-          active: active
-        };
-      }
-
+      this.itemsByPage = 15;
+      this.isLoading = false;
 
       for (var j = 0; j < 200; j++) {
-        this.users.push(createRandomItem());
+        this.users.push(RestUsers.get());
+      }
+
+      if (RestUsers.getNew() != null) {
+      this.users.splice(0, 0, RestUsers.getNew());
       }
 
       this.removeUser = function removeUser(row) {
@@ -93,16 +73,8 @@
         }
       }
 
-      /**
-      this.getData = function(){
-        var that = this;
-        RestUsers.get(function(data){
-          that.users = data;
-        });
-      };
 
-      this.getData();
-      **/
+
     }]);
 
 })();

@@ -1,13 +1,19 @@
 angular.module('mainApp')
-.controller('AddUserCtrl', ['$scope',function($scope) {
+.controller('AddUserCtrl', ['$scope','$location','RestUsers',function($scope,$location,RestUsers) {
 
-    this.addUser = function addUser(){
+    this.addUser = function addUser(user){
 
+      this.empty = {};
+      var last = user.name.last,
+          first = user.name.first,
+          age = user.age,
+          email = user.email,
+          active = user.active;
 
-      document.getElementsByName("").value;
+      RestUsers.post(last,first,age,email,active);
+      this.user = this.empty;
+      $location.url('/');
     }
-
-
   }]);
 
 

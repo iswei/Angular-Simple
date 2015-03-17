@@ -3,30 +3,68 @@
  */
 'use strict';
 
-angular.module('restModule',['mainApp']).factory('RestUsers', ['$http', function($http){
+angular.module('mainApp')
+  .factory('RestUsers', ['$location',function($location){
+    var firstList = ['Wei', 'Jeremy', 'Christina', 'Emily', 'Mayu'];
+    var lastName = ['Frankenstein', 'Lin', 'Henderson', 'Su', 'Kudo'];
+    this.newUser = [];
+    var that = this;
+    var getRandomUser = function(){
+        var
+          first = firstList[Math.floor(Math.random() * 4)],
+          last = lastName[Math.floor(Math.random() * 4)],
+          age = Math.floor(Math.random() * 100),
+          email = first + last + '@whatever.com',
+          createDate = (new Date(new Date())).toLocaleString(),
+          editDate = (new Date(new Date())).toLocaleString(),
+          active = false;
 
-    var getUser = function(cb){
+        return {
+          name:{
+            last: last,
+            first: first
+          },
+          age: age,
+          email: email,
+          createDate: createDate,
+          editDate: editDate,
+          active: active
+        };
 
-      $http.get('/data/userdb.js').success(function(data){
-        cb(data);
-
-      });
     };
 
-    var createUser = function(){
+    var createUser = function(last,first,age,email,active){
+      var
+        createDate = (new Date(new Date())).toLocaleString(),
+        editDate = (new Date(new Date())).toLocaleString();
 
+      var data = {
+        name:{
+          last: last,
+          first: first
+        },
+        age: age,
+        email: email,
+        createDate: createDate,
+        editDate: editDate,
+        active: active
+      };
+
+      that.newUser = data;
     };
+
     var editUser = function(){
 
     };
-    var deleteUser = function(){
 
-    };
+    var getNewUser = function(){
+          return that.newUser;
+    }
     return {
-      get: getUser,
+      get: getRandomUser,
+      getNew: getNewUser,
       post: createUser,
-      update: editUser,
-      delete: deleteUser
+      update: editUser
     };
   }]);
 
