@@ -1,3 +1,4 @@
+'use strict'
 angular.module('mainApp')
 .controller('AddUserCtrl', ['$scope','$location','RestUsers',function($scope,$location,RestUsers) {
 
@@ -11,7 +12,7 @@ angular.module('mainApp')
           active = user.active;
 
       RestUsers.post(last,first,age,email,active);
-      this.user = this.empty;
+      user = this.empty;
       $location.url('/');
     }
   }]);

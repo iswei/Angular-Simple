@@ -1,0 +1,14 @@
+<div class="col-lg-12">
+  <h3 class="page-header">Edit User  <small>Must Fill all Input Boxes</small></h3>
+</div>
+<form name="editUserForm">
+  <div colspan="2"><input class="form-control" ng-required="true" ng-model="UpdateUser.user.name.last" placeholder="Last"  type="text" /></div>
+  <div colspan="2"><input class="form-control" ng-required="true" ng-model="UpdateUser.user.name.first" placeholder="First" type="text"/></div>
+  <div colspan="1"><input class="form-control" ng-required="true" ng-model="UpdateUser.user.age" placeholder="Age" type="text"/></div>
+  <div colspan="2"><input class="form-control" ng-required="true" ng-model="UpdateUser.user.email" placeholder="Email" type="text"/></div>
+  <div class="checkbox"><label><input type="checkbox" ng-model="UpdateUser.user.active"> Active</label></div>
+  <div colspan="2"><button type="button"  ng-disabled="editUserForm.$invalid" ng-click="UpdateUser.updateUser(UpdateUser.user)"class="btn btn-sm btn-success" >
+    <i class="glyphicon glyphicon-plus">
+    </i> Edit User
+  </button></div>
+</form>

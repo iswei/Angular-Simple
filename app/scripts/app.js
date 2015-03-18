@@ -33,6 +33,10 @@ angular
         templateUrl: 'views/register.html',
         controller: 'AddUserCtrl as AddUser'
       })
+      .when('/edit', {
+        templateUrl: '/views/edit.html',
+        controller: 'UpdateUserCtrl as UpdateUser'
+      })
       .otherwise({
         redirectTo: '/'
       });
