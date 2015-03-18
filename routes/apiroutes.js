@@ -1,3 +1,7 @@
+/**
+ ignore since db is not use
+ **/
+
 var async = require('async');
 
 module.exports = function(app) {

@@ -1,6 +1,10 @@
 /**
  * Created by linwei on 3/16/2015.
  */
+/**
+ ignore since db is not use
+ **/
+
 var simpledb = require('mongoose-simpledb');
 
 var db = simpledb.init('mongodb://localhost/test');

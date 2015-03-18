@@ -11,6 +11,8 @@ angular.module('mainApp')
     this.editUser = {};
     this.editUserIndex = -1;
     var that = this;
+
+    //generate random users logic
     var getRandomUser = function(){
         var
           first = firstList[Math.floor(Math.random() * 4)],
@@ -35,6 +37,7 @@ angular.module('mainApp')
 
     };
 
+    //create user
     var createUser = function(last,first,age,email,active){
       var
         createDate = (new Date(new Date())).toLocaleString(),
@@ -55,21 +58,8 @@ angular.module('mainApp')
       that.newUser = data;
     };
 
-    var updateUser = function(isEdit,last,first,age,email,createDate,editDate,active) {
-      if (isEdit) {
-        var data = {
-          name: {
-            last: last,
-            first: first
-          },
-          age: age,
-          email: email,
-          createDate: createDate,
-          editDate: editDate,
-          active: active
-        };
-
-      } else {
+    //handle update user object
+    var updateUser = function(last,first,age,email,createDate,editDate,active) {
 
         var data = {
           name: {
@@ -82,18 +72,11 @@ angular.module('mainApp')
           editDate: editDate,
           active: active
         };
-      }
+
       that.editUser = data;
     };
 
-      this.currentUser = function currentUser(row) {
-        var index = that.users.indexOf(row);
-        if (index !== -1) {
-          that.users.splice(index, 1);
-        }
-      };
-
-
+    //getter and setters
     var getNewUser = function(){
       return that.newUser;
     };

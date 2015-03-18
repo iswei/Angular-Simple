@@ -1,3 +1,6 @@
+/**
+ ignore since db is not use
+ **/
 var bodyParser = require('body-parser');
 var express = require('express'),
     app = express();
